@@ -1,0 +1,7 @@
+D:\Projects\C#\SJTU-VR-1903\CSharp\exercise1\exercise1\bin\Debug\exercise1.exe.config
+D:\Projects\C#\SJTU-VR-1903\CSharp\exercise1\exercise1\bin\Debug\exercise1.exe
+D:\Projects\C#\SJTU-VR-1903\CSharp\exercise1\exercise1\bin\Debug\exercise1.pdb
+D:\Projects\C#\SJTU-VR-1903\CSharp\exercise1\exercise1\obj\Debug\exercise1.csprojAssemblyReference.cache
+D:\Projects\C#\SJTU-VR-1903\CSharp\exercise1\exercise1\obj\Debug\exercise1.csproj.CoreCompileInputs.cache
+D:\Projects\C#\SJTU-VR-1903\CSharp\exercise1\exercise1\obj\Debug\exercise1.exe
+D:\Projects\C#\SJTU-VR-1903\CSharp\exercise1\exercise1\obj\Debug\exercise1.pdb
