@@ -1,0 +1,6 @@
+E:\OneDrive\Underguaduate Works\Game Design\Programming\SJTU-VR-PROGRAM\SJTU-VR-1903\CSharp\exercise1\exercise1\bin\Debug\exercise1.exe.config
+E:\OneDrive\Underguaduate Works\Game Design\Programming\SJTU-VR-PROGRAM\SJTU-VR-1903\CSharp\exercise1\exercise1\bin\Debug\exercise1.exe
+E:\OneDrive\Underguaduate Works\Game Design\Programming\SJTU-VR-PROGRAM\SJTU-VR-1903\CSharp\exercise1\exercise1\bin\Debug\exercise1.pdb
+E:\OneDrive\Underguaduate Works\Game Design\Programming\SJTU-VR-PROGRAM\SJTU-VR-1903\CSharp\exercise1\exercise1\obj\Debug\exercise1.csprojResolveAssemblyReference.cache
+E:\OneDrive\Underguaduate Works\Game Design\Programming\SJTU-VR-PROGRAM\SJTU-VR-1903\CSharp\exercise1\exercise1\obj\Debug\exercise1.exe
+E:\OneDrive\Underguaduate Works\Game Design\Programming\SJTU-VR-PROGRAM\SJTU-VR-1903\CSharp\exercise1\exercise1\obj\Debug\exercise1.pdb
