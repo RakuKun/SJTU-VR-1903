@@ -18,7 +18,8 @@ namespace exercise1
             }
             Console.WriteLine();
 
-            Console.WriteLine(Number2String(166006));
+            Console.WriteLine(Number2String(-166006));
+            Console.WriteLine(Number2String(0));
             Console.WriteLine();
 
             int[] nums = { 1, 2, 3, 5, 4, 7, 9, 8, 6 };
@@ -28,11 +29,25 @@ namespace exercise1
         static string Number2String(int n)
         {
             string result = "";
+            bool neg = false;
+            if (n < 0)
+            {
+                n = -n;
+                neg = true;
+            }
+            else if (n == 0) 
+            {
+                return "0";
+            }
             while (n != 0)
             {
                 int rem;
                 n = Math.DivRem(n, 10, out rem);
                 result = result.Insert(0, rem.ToString());
+            }
+            if (neg)
+            {
+                result = result.Insert(0, "-");
             }
             return result;
         }
