@@ -1,0 +1,14 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.0.0
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exercise1", "CSharp\exercise1\exercise1\exercise1.csproj", "{F58DC229-07CE-4F8F-B915-2D9EA6E57A64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exercise2", "exercise2\exercise2.csproj", "{A7BA97C5-ABAF-4A9A-9EDE-BC5406A1921B}"
+EndProject
+Global
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	EndGlobalSection
+EndGlobal
