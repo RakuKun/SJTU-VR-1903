@@ -36,15 +36,22 @@ namespace exercise3
 
         public void outParking(Car car, DateTime outParkingTime)
         {
-            car.outParkingTime = outParkingTime;
-            carListInParking.Remove(car);
-            numOfRemainPlace++;
-            numOfAlreadyUsedPlace--;
-            
-            TimeSpan inTime = new TimeSpan(car.inParkingTime.Ticks);
-            TimeSpan outTime = new TimeSpan(car.outParkingTime.Ticks);
-            car.fee = car.feePerHour * (int)outTime.Subtract(inTime).TotalHours;
-            carListOutParking.Add(car);
+            if (carListInParking.Contains(car))
+            {
+                car.outParkingTime = outParkingTime;
+                carListInParking.Remove(car);
+                numOfRemainPlace++;
+                numOfAlreadyUsedPlace--;
+
+                TimeSpan inTime = new TimeSpan(car.inParkingTime.Ticks);
+                TimeSpan outTime = new TimeSpan(car.outParkingTime.Ticks);
+                car.fee = car.feePerHour * (int) outTime.Subtract(inTime).TotalHours;
+                carListOutParking.Add(car);
+            }
+            else
+            {
+                Console.WriteLine("this car is not exist");
+            }
         }
 
         public void printCarList()
