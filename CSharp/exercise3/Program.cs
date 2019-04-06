@@ -13,11 +13,13 @@ namespace exercise3
             
             Random random = new Random();
 
+            //in parking
             for (int i = 0; i < 20; i++)
             {
                 int type = random.Next(1, 20);
                 time = time.AddMinutes(random.Next(1, 10)).AddHours(random.Next(0, 2));
                 
+                //sedan
                 if (type % 2 == 1)
                 {
                     Sedan sedan = new Sedan();
@@ -25,6 +27,7 @@ namespace exercise3
                     carList.Add(sedan);
                     parking.inParking(sedan, time);
                 }
+                //truck
                 else
                 {
                     Truck truck = new Truck();
@@ -34,6 +37,7 @@ namespace exercise3
                 }
             }
 
+            //out parking
             foreach (var car in carList)
             {
                 time = time.AddMinutes(random.Next(1, 10)).AddHours(random.Next(0, 2));
@@ -41,6 +45,7 @@ namespace exercise3
                 parking.outParking(car, time);
             }
             
+            //print
             parking.printCarList();
         }
     }
