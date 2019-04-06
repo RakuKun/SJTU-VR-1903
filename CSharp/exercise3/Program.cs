@@ -36,6 +36,7 @@ namespace exercise3
                     parking.inParking(truck, time);
                 }
             }
+            parking.printParkingUse();
 
             //out parking
             foreach (var car in carList)
@@ -47,6 +48,7 @@ namespace exercise3
             
             //print
             parking.printCarList();
+            parking.printParkingUse();
         }
     }
 }

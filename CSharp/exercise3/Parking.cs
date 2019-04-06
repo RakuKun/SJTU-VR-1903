@@ -61,5 +61,10 @@ namespace exercise3
                 car.printInformation();
             }
         }
+
+        public void printParkingUse()
+        {
+            Console.WriteLine($"numOfRemainPlace: {numOfRemainPlace}; numOfAlreadyUsedPlace: {numOfAlreadyUsedPlace};");
+        }
     }
 }
