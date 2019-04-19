@@ -1,0 +1,6 @@
+E:\myWorkSpace\CSWork\CSharp\exercise4\bin\Debug\exercise4.exe
+E:\myWorkSpace\CSWork\CSharp\exercise4\bin\Debug\exercise4.pdb
+E:\myWorkSpace\CSWork\CSharp\exercise4\obj\Debug\exercise4.csprojAssemblyReference.cache
+E:\myWorkSpace\CSWork\CSharp\exercise4\obj\Debug\exercise4.csproj.CoreCompileInputs.cache
+E:\myWorkSpace\CSWork\CSharp\exercise4\obj\Debug\exercise4.exe
+E:\myWorkSpace\CSWork\CSharp\exercise4\obj\Debug\exercise4.pdb
