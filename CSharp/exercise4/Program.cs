@@ -37,8 +37,17 @@ namespace exercise4
             Console.WriteLine();
             
             Console.WriteLine(tree.Count);
-            Console.WriteLine(tree.FindMin());
-            Console.WriteLine(tree.FindMax());
+            Console.WriteLine(tree.findMin());
+            Console.WriteLine(tree.findMax());
+            
+            tree.delete(3);
+            dataList = tree.Traversal(BinarySearchTree<int>.Mode.PreOrder);        
+            Console.WriteLine("PreOrder:");
+            foreach (var data in dataList)
+            {
+                Console.Write(data + "");
+            }
+            Console.WriteLine();
         }
     }
 }

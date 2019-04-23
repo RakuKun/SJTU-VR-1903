@@ -16,12 +16,14 @@ namespace exercise4
         class Node<T>
         {
             public T data { get; set; }
+			public Node<T> parent {get; set; }
             public Node<T> left { get; set; }
             public Node<T> right { get; set; }
 
             public Node()
             {
                 data = default(T);
+				parent = null;
                 left = null;
                 right = null;
             }
@@ -29,6 +31,7 @@ namespace exercise4
             public Node(T data)
             {
                 this.data = data;
+				parent = null;
                 left = null;
                 right = null;
             }
@@ -51,49 +54,60 @@ namespace exercise4
             }
         }
 
-        public T FindMin()
+        private Node<T> FindMinNode(Node<T> node)
         {
             if (Count == 0)
             {
-                return default(T);
+                return new Node<T>();
             }
             else
             {
-                T minData = root.data;
+                Node<T> minDataNode = node;
 
-                Node<T> leftNode = root.left;
+                Node<T> leftNode = node.left;
                 while (leftNode != null)
                 {
-                    minData = leftNode.data;
+                    minDataNode = leftNode;
 
                     leftNode = leftNode.left;
                 }
 
-                return minData;
+                return minDataNode;
             }
         }
+		
+		public T findMin()
+		{
+			return FindMinNode(root).data;
+		}
 
-        public T FindMax()
+        private Node<T> FindMaxNode(Node<T> node)
         {
             if (Count == 0)
             {
-                return default(T);
+                return new Node<T>();
             }
             else
             {
-                T maxData = root.data;
+                Node<T> maxDataNode = node;
 
-                Node<T> rightNode = root.right;
+                Node<T> rightNode = node.right;
                 while (rightNode != null)
                 {
-                    maxData = rightNode.data;
+                    maxDataNode = rightNode;
 
                     rightNode = rightNode.right;
                 }
 
-                return maxData;
+                return maxDataNode;
             }
         }
+		
+		public T findMax()
+		{
+			return FindMaxNode(root).data;
+		}
+		
         public void Insert(T data)
         {
             if (root == null)
@@ -123,10 +137,10 @@ namespace exercise4
             {
                 if (node.left == null)
                 {
-//                    Node<T> leftNode = new Node<T>();
-//                    leftNode.data = data;
-//                    node.left = leftNode;
-                    node.left = new Node<T>(data);
+                    Node<T> leftNode = new Node<T>();
+                    leftNode.data = data;
+                    node.left = leftNode;
+	                leftNode.parent = node;
                 }
                 else
                 {
@@ -138,10 +152,10 @@ namespace exercise4
             {
                 if (node.right == null)
                 {
-//                    Node<T> rightNode = new Node<T>();
-//                    rightNode.data = data;
-//                    node.right = rightNode;
-                    node.right = new Node<T>(data);
+                    Node<T> rightNode = new Node<T>();
+                    rightNode.data = data;
+                    node.right = rightNode;
+	                rightNode.parent = node;
                 }
                 else
                 {
@@ -209,10 +223,103 @@ namespace exercise4
             PostOrder(node.right, dataList);
             dataList.Add(node.data);
         }
+		
+		private Node<T> searchNode(Node<T> node, T data)
+		{
+//			if (node == null)
+//			{
+//				return null;
+//			}
+//			if (data.CompareTo(node.data) == 0)
+//			{
+//				return node;
+//			}
+//
+//			if (node.left != null)
+//			{
+//				searchNode(node.left, data);
+//			}
+//
+//			if (node.right != null)
+//			{
+//				searchNode(node.right, data);
+//			}
+//			
+//			return null;
+			if (node == null)
+			{
+				return null;
+			}
+
+			if (node.data.CompareTo(data) > 0)
+			{
+				return searchNode(node.left, data);
+			}
+			else if (node.data.CompareTo(data) < 0)
+			{
+				return searchNode(node.right, data);
+			}
+			else
+				return node;
+		}
         
-        public void deleteNode(T v)
+        public void delete(T data)
         {
-            
+			if (Count == 0)
+			{
+				return;
+			}
+            Node<T> node = searchNode(root, data);
+			if (node == null)
+			{
+				return;
+			}
+			
+			if (node.left != null && node.right != null)
+			{
+				Node<T> deleteNode = FindMinNode(node);
+				node.data = deleteNode.data;
+				
+				if (deleteNode.right != null)
+				{
+					deleteNode.parent.left = deleteNode.right;
+					deleteNode.right.parent = deleteNode.parent;
+				}
+				else
+				{
+					deleteNode.parent.left = null;
+				}
+			}
+			else if(node.left != null && node.right == null)
+			{
+				if (node.parent.left == node)
+				{
+					node.parent.left = node.left;
+				}
+				else{
+					node.parent.right = node.left;
+				}
+			}
+			else if(node.left == null && node.right != null)
+			{
+				if (node.parent.left == node)
+				{
+					node.parent.left = node.right;
+				}
+				else{
+					node.parent.right = node.right;
+				}
+			}
+			else
+			{
+				if (node.parent.left == node)
+				{
+					node.parent.left = null;
+				}
+				else{
+					node.parent.right = null;
+				}
+			}
         }
     }
 }
