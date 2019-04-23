@@ -76,7 +76,7 @@ namespace exercise4
             }
         }
 		
-		public T findMin()
+		public T FindMin()
 		{
 			return FindMinNode(root).data;
 		}
@@ -103,7 +103,7 @@ namespace exercise4
             }
         }
 		
-		public T findMax()
+		public T FindMax()
 		{
 			return FindMaxNode(root).data;
 		}
@@ -224,28 +224,8 @@ namespace exercise4
             dataList.Add(node.data);
         }
 		
-		private Node<T> searchNode(Node<T> node, T data)
+		private Node<T> SearchNode(Node<T> node, T data)
 		{
-//			if (node == null)
-//			{
-//				return null;
-//			}
-//			if (data.CompareTo(node.data) == 0)
-//			{
-//				return node;
-//			}
-//
-//			if (node.left != null)
-//			{
-//				searchNode(node.left, data);
-//			}
-//
-//			if (node.right != null)
-//			{
-//				searchNode(node.right, data);
-//			}
-//			
-//			return null;
 			if (node == null)
 			{
 				return null;
@@ -253,23 +233,23 @@ namespace exercise4
 
 			if (node.data.CompareTo(data) > 0)
 			{
-				return searchNode(node.left, data);
+				return SearchNode(node.left, data);
 			}
 			else if (node.data.CompareTo(data) < 0)
 			{
-				return searchNode(node.right, data);
+				return SearchNode(node.right, data);
 			}
 			else
 				return node;
 		}
         
-        public void delete(T data)
+        public void Delete(T data)
         {
 			if (Count == 0)
 			{
 				return;
 			}
-            Node<T> node = searchNode(root, data);
+            Node<T> node = SearchNode(root, data);
 			if (node == null)
 			{
 				return;
