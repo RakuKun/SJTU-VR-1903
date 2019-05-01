@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Dynamic;
 
 namespace exercise4
 {
-    public class BinarySearchTree<T>
+    public class BinarySearchTree<T> : IEnumerable<T>
         where T : IComparable<T>
     {
         public enum Mode
@@ -301,5 +302,31 @@ namespace exercise4
 				}
 			}
         }
+	    
+	    public IEnumerator<T> GetEnumerator()
+	    {
+		    Stack<Node<T>> stack = new Stack<Node<T>>();
+		    Node<T> current = root;
+		    while (current != null || stack.Count != 0)
+		    {
+			    while (current != null)
+			    {
+				    stack.Push(current);
+				    current = current.left;
+			    }
+
+			    if (stack.Count != 0)
+			    {
+				    current = stack.Pop();
+				    yield return current.data;
+				    current = current.right;
+			    }
+		    }
+	    }
+
+	    IEnumerator IEnumerable.GetEnumerator()
+	    {
+		    return this.GetEnumerator();
+	    }
     }
 }

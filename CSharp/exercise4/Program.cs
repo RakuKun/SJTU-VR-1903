@@ -48,6 +48,13 @@ namespace exercise4
                 Console.Write(data + "");
             }
             Console.WriteLine();
+
+
+
+            foreach (var item in tree)
+            {
+                Console.Write(item + "");
+            }
         }
     }
 }
