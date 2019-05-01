@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.ExceptionServices;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BST
 {
-    class BinarySearchTree<T>
+    class BinarySearchTree<T> : IEnumerable<T>
     {
         public enum Mode
         {
@@ -257,6 +258,8 @@ namespace BST
             PreOrder(node.left, t);
             PreOrder(node.right, t);
         }
+
+
         private void InOrder(Node<T> node, List<T> t)
         {
             if (node == null)
@@ -265,6 +268,7 @@ namespace BST
             t.Add(node.v);
             InOrder(node.right, t);
         }
+
         private void PostOrder(Node<T> node, List<T> t)
         {
             if (node == null)
@@ -310,6 +314,30 @@ namespace BST
             return result;
         }
 
+        public IEnumerator<T> GetEnumerator()
+        {
+            Stack<Node<T>> s = new Stack<Node<T>>();
+            Node<T> currentNode = root;
+            while (currentNode != null || !(s.Count == 0))
+            {
+                if (currentNode != null)
+                {
+                    s.Push(currentNode);
+                    currentNode = currentNode.left;
+                }
+                else
+                {
+                    currentNode = s.Pop();
+                    yield return currentNode.v;
+                    currentNode = currentNode.right;
+                }
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
+        }
     }
     class Program
     {
@@ -355,9 +383,14 @@ namespace BST
             bst.Erase(8);
             Console.Write("After deleting 8,PreOrder:");
             result = bst.Traversal(BinarySearchTree<int>.Mode.PreOrder);
-            foreach (var item in result)
+            //foreach (var item in result)
+            //{
+            //    Console.Write($"{item} ");
+            //}
+
+            foreach (var item in bst)
             {
-                Console.Write($"{item} ");
+                Console.WriteLine(item);
             }
 
             while (true)
